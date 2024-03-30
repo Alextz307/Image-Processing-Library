@@ -1,0 +1,1 @@
+g++ -std=c++17 point.cpp test.cpp -o test
