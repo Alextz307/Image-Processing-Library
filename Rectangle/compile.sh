@@ -1,0 +1,1 @@
+g++ -std=c++17 ../Point/point.cpp rectangle.cpp test.cpp -o test
