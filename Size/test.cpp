@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cassert>
-#include "size.cpp"
+#include "size.h"
 
 void test_constructor() {
     Size s1;

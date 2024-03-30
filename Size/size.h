@@ -1,3 +1,6 @@
+#ifndef SIZE_H
+#define SIZE_H
+
 class Size {
     private:
         unsigned int width;
@@ -28,3 +31,5 @@ class Size {
 
         bool operator >=(const Size& other) const; 
 };
+
+#endif

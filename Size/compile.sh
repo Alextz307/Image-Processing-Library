@@ -1,1 +1,1 @@
-g++ -std=c++17 test.cpp -o test
+g++ -std=c++17 size.cpp test.cpp -o test
