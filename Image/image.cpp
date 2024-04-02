@@ -82,7 +82,7 @@ bool Image::save(std::string imagePath) const {
     return true;
 }
 
-Image Image::operator +(const Image &other) {
+Image Image::operator +(const Image &other) const {
     Image new_image = Image(m_width, m_height);
 
     for (unsigned int i = 0; i < m_width; ++i) {
@@ -94,7 +94,7 @@ Image Image::operator +(const Image &other) {
     return new_image;
 }
 
-Image Image::operator -(const Image &other) {
+Image Image::operator -(const Image &other) const {
     Image new_image = Image(m_width, m_height);
 
     for (unsigned int i = 0; i < m_width; ++i) {
@@ -106,7 +106,7 @@ Image Image::operator -(const Image &other) {
     return new_image;
 }
 
-Image Image::operator *(double s) {
+Image Image::operator *(double s) const {
     Image new_image = Image(m_width, m_height);
 
     for (int i = 0; i < m_width; ++i) {
