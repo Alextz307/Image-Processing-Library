@@ -27,11 +27,11 @@ class Image {
 
         bool save(std::string imagePath) const;
 
-        Image operator +(const Image &other);
+        Image operator +(const Image &other) const;
 
-        Image operator -(const Image &other);
+        Image operator -(const Image &other) const;
 
-        Image operator *(double s);
+        Image operator *(double s) const;
 
         bool get_roi(Image &roiImg, Rectangle roiRect);
 

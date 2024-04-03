@@ -82,36 +82,44 @@ bool Image::save(std::string imagePath) const {
     return true;
 }
 
-Image Image::operator +(const Image &other) {
+Image Image::operator +(const Image &other) const {
+    if (this->m_width != other.get_width() || this->m_height != other.get_height()) {
+        throw std::invalid_argument("Images do not have the same resolution");
+    }
+
     Image new_image = Image(m_width, m_height);
 
     for (unsigned int i = 0; i < m_width; ++i) {
         for (unsigned int j = 0; j < m_height; ++j) {
-            new_image.set_pixel(i, j, static_cast<unsigned char>(m_data[i][j] + other.at(i, j)));
+            new_image.set_pixel(i, j, static_cast<unsigned char>(std::min((int)m_data[i][j] + other.at(i, j), 255)));
         }
     }
 
     return new_image;
 }
 
-Image Image::operator -(const Image &other) {
+Image Image::operator -(const Image &other) const {
+    if (this->m_width != other.get_width() || this->m_height != other.get_height()) {
+        throw std::invalid_argument("Images do not have the same resolution");
+    }
+    
     Image new_image = Image(m_width, m_height);
 
     for (unsigned int i = 0; i < m_width; ++i) {
         for (unsigned int j = 0; j < m_height; ++j) {
-            new_image.set_pixel(i, j, static_cast<unsigned char>(m_data[i][j] - other.at(i, j)));
+            new_image.set_pixel(i, j, static_cast<unsigned char>(std::max((int)m_data[i][j] - other.at(i, j), 0)));
         }
     }
 
     return new_image;
 }
 
-Image Image::operator *(double s) {
+Image Image::operator *(double s) const {
     Image new_image = Image(m_width, m_height);
 
     for (int i = 0; i < m_width; ++i) {
         for (int j = 0; j < m_height; ++j) {
-            new_image.set_pixel(i, j, static_cast<unsigned char>(m_data[i][j] * s));
+            new_image.set_pixel(i, j, static_cast<unsigned char>(std::min(int(s * m_data[i][j]), 255)));
         }
     }
 
