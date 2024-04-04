@@ -6,6 +6,12 @@ int main() {
     Image img;
     img.load("../../assets/baboon.ascii.pgm");
 
+    vector<vector<int>> noopKernel = {
+        {0, 0, 0}, 
+        {0, 1, 0}, 
+        {0, 0, 0}
+    };
+
     vector<vector<int>> horizontalKernel = {
         {1, 2, 1}, 
         {0, 0, 0}, 
@@ -18,17 +24,21 @@ int main() {
         {-1, 0, 1}
     };
 
+    Convolution noopProcessor = Convolution(noopKernel, Convolution::clip);
     Convolution horizProcessor = Convolution(horizontalKernel, Convolution::clip);
     Convolution verticalProcessor = Convolution(verticalKernel, Convolution::clip);
 
-    Image horiz_img;
-    Image vertical_img;
+    Image noopImg;
+    Image horizImg;    
+    Image verticalImg; 
 
-    horizProcessor.process(img, horiz_img);
-    verticalProcessor.process(img, vertical_img);
+    noopProcessor.process(img, noopImg);
+    horizProcessor.process(img, horizImg);
+    verticalProcessor.process(img, verticalImg);
 
-    horiz_img.save("../../assets/processor_images/horizontal_convolution.ascii.pgm");
-    vertical_img.save("../../assets/processor_images/vertical_convolution.ascii.pgm");
+    noopImg.save("../../assets/processor_images/noop_convolution.ascii.pgm");
+    horizImg.save("../../assets/processor_images/horizontal_convolution.ascii.pgm");
+    verticalImg.save("../../assets/processor_images/vertical_convolution.ascii.pgm");
 
     return 0;   
 }
