@@ -1,1 +1,1 @@
-g++ -std=c++17 ../../Point/point.cpp ../../Size/size.cpp ../../Rectangle/rectangle.cpp ../../Image/image.cpp ../image_processing.cpp gamma_correction.cpp test.cpp -o test
+g++ -std=c++17 ../../Point/point.cpp ../../Size/size.cpp ../../Rectangle/rectangle.cpp ../../Image/image.cpp gamma_correction.cpp test.cpp -o test
