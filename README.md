@@ -58,9 +58,3 @@ This project is a basic Image Processing Library that focuses on handling graysc
   - Memory management tests for potential leaks.
   
 - **Sample Use Cases:** Examples demonstrating image loading, transformations, and geometric operations on images.
-
-## Future Enhancements
-
-- **Additional Filters:** Implement more advanced image filters such as blur, edge detection, etc.
-- **Color Image Support:** Extend the library to handle color images.
-- **Performance Optimization:** Improve efficiency for large image operations.
